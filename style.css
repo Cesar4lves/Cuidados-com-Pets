@@ -1,9 +1,85 @@
+:root{
+  --color-background: #f7fafc;
+  --color-primary: #476BA3;
+  --color-text: #2d3748;
+  --color-datas: gray;
+  --color-bold: #f4a261;
+  --font-principal:"Roboto", sans-serif;;
+  --font-title:"Cherry Bomb One", system-ui;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================== Body ======================= */
+body{
+  background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-principal);
+    /* aumenta tamnho das linhas */
+    line-height: 1.6;
+  }
+
+/* ==================== Header ======================== */
+.header {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1{
+  font-size: 4rem;
+  margin-bottom: 8px;
+  font-family: var(--font-title);
+  font-weight: 500;
+}
+
+/* ===================== Main ===================== */
+
+main {
+  margin: 30px 70px;
+}
+
+.date{
+  color: var(--color-datas);
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.welcome img{
+  max-width: 100%;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+b {
+  color: var(--color-bold);
+}
+
+section{
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+ul, ol {
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+/* =================== Botao e Galeria ==================== */
 .grade {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -16,4 +92,19 @@
   height: 100%;
   border-radius: 10px;
   box-shadow: rgb(39, 58, 79) 0px 20px 30px -10px;
+}
+
+h2, h3{
+  color:var(--color-primary)
+}
+
+h2{
+  font-size: 2rem;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+  border-bottom: var(--color-bold) solid 3px;
+}
+
+ul{
+  list-style: none;
 }
