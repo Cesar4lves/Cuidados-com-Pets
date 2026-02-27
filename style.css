@@ -4,7 +4,7 @@
   --color-text: #2d3748;
   --color-datas: gray;
   --color-bold: #f4a261;
-  --font-principal:"Roboto", sans-serif;;
+  --font-principal:"Roboto", sans-serif;
   --font-title:"Cherry Bomb One", system-ui;
 }
 
@@ -29,6 +29,16 @@ body{
   color: white;
   text-align: center;
   padding: 60px 20px;
+  /* border: green solid; */
+}
+
+.header img{
+  width: 90px;
+}
+
+a {
+  color: var(--color-datas);
+  text-decoration: none;
 }
 
 header h1{
@@ -42,6 +52,7 @@ header h1{
 
 main {
   margin: 30px 70px;
+  /* border: red solid; */
 }
 
 .date{
@@ -51,7 +62,8 @@ main {
   font-size: 0.875rem;
 }
 
-.welcome img{
+.post-img img{
+  /* border: solid orangered; */
   max-width: 100%;
   margin: 20px 0;
   border-radius: 10px;
@@ -63,12 +75,34 @@ b {
 }
 
 section{
+  /* border: solid rgb(247, 247, 55); */
   background-color: white;
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
+
+table{
+  /* border: solid; */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th {
+      background: var(--color-primary);
+      color: var(--color-background);
+    }
+
+
+th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+
 
 ul, ol {
       padding-left: 24px;
@@ -107,4 +141,10 @@ h2{
 
 ul{
   list-style: none;
+}
+
+.dica{
+  margin: 50px 0;
+  padding-left:20px;
+  border-left: solid var(--color-bold) 5px;
 }
