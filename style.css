@@ -1,13 +1,19 @@
-:root{
+/* Variáveis CSS (custom properties) – super útil para manutenção */
+:root {
   --color-background: #f7fafc;
-  --color-primary: #476BA3;
-  --color-text: #2d3748;
-  --color-datas: gray;
-  --color-bold: #f4a261;
-  --font-principal:"Roboto", sans-serif;
-  --font-title:"Cherry Bomb One", system-ui;
+  --color-primary:   #476BA3;
+  --color-text:      #2d3748;
+  --color-datas:     gray;
+  --color-bold:      #f4a261;
+  --color-hover:     #e76f51;
+  --color-input1:    #f5f5f5;
+  --color-input2:    #eeeeee;
+
+  --font-principal:  "Roboto", system-ui, sans-serif;
+  --font-title:      "Cherry Bomb One", system-ui;
 }
 
+/* Reset básico + box-sizing global (melhor prática) */
 * {
   margin: 0;
   padding: 0;
@@ -15,13 +21,13 @@
 }
 
 /* ================== Body ======================= */
-body{
+body {
   background: var(--color-background);
-    color: var(--color-text);
-    font-family: var(--font-principal);
-    /* aumenta tamnho das linhas */
-    line-height: 1.6;
-  }
+  color: var(--color-text);
+  font-family: var(--font-principal);
+  line-height: 1.6;           /* espaçamento entre linhas melhora legibilidade */
+  min-height: 100vh;          /* garante que o footer fique em baixo se conteúdo for pequeno */
+}
 
 /* ==================== Header ======================== */
 .header {
@@ -29,53 +35,64 @@ body{
   color: white;
   text-align: center;
   padding: 60px 20px;
-  /* border: green solid; */
 }
 
-.header img{
+.header img {
   width: 90px;
+  height: auto;               /* mantém proporção da imagem */
 }
 
-a {
-  color: var(--color-datas);
-  text-decoration: none;
-}
-
-header h1{
+.header h1 {
   font-size: 4rem;
   margin-bottom: 8px;
   font-family: var(--font-title);
   font-weight: 500;
 }
 
-/* ===================== Main ===================== */
-
-main {
-  margin: 30px 70px;
-  /* border: red solid; */
+/* Links – cor padrão cinza, mas pode mudar se quiser destaque */
+a {
+  color: var(--color-datas);
+  text-decoration: none;
 }
 
-.date{
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* ===================== Main ===================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Data dos posts */
+.date {
   color: var(--color-datas);
   font-style: italic;
   margin-bottom: 1rem;
   font-size: 0.875rem;
 }
 
-.post-img img{
-  /* border: solid orangered; */
-  max-width: 100%;
-  margin: 20px 0;
+/* Imagens dentro dos posts */
+.post-img img {
+  max-width: 100%;            /* responsividade – nunca estourar */
+  height: auto;
+  display: block;
+  margin: 20px auto;          /* centraliza */
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
 }
 
-b {
+/* Destaques em negrito com cor */
+strong {
   color: var(--color-bold);
 }
 
-section{
-  /* border: solid rgb(247, 247, 55); */
+/* Seções / artigos com fundo branco */
+section, article {
   background-color: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -83,37 +100,35 @@ section{
   box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
 
-table{
-  /* border: solid; */
+/* Tabelas – bordas suaves e responsivas */
+table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
 }
 
 th {
-      background: var(--color-primary);
-      color: var(--color-background);
-    }
-
+  background: var(--color-primary);
+  color: var(--color-background);
+}
 
 th, td {
-      padding: 14px;
-      text-align: left;
-      border-bottom: 1px solid #e2e8f0;
-    }
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
 
-
-
+/* Listas – sem bullet padrão, mas com espaçamento bom */
 ul, ol {
-      padding-left: 24px;
-      margin: 16px 0;
-    }
+  padding-left: 24px;
+  margin: 16px 0;
+}
 
-    li {
-      margin-bottom: 12px;
-    }
+li {
+  margin-bottom: 12px;
+}
 
-/* =================== Botao e Galeria ==================== */
+/* =================== Galeria ==================== */
 .grade {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -124,27 +139,146 @@ ul, ol {
 .grade img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: rgb(39, 58, 79) 0px 20px 30px -10px;
+  box-shadow: 0 20px 30px -10px rgb(39, 58, 79);
 }
 
-h2, h3{
-  color:var(--color-primary)
+/* Botão da galeria – transição suave */
+#btn-galeria {
+  background-color: var(--color-bold);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: all 0.3s ease;
 }
 
-h2{
+#btn-galeria:hover,
+#btn-galeria:focus {
+  background-color: var(--color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Cabeçalhos */
+h2, h3 {
+  color: var(--color-primary);
+}
+
+h2 {
   font-size: 2rem;
   padding-bottom: 10px;
   margin-bottom: 24px;
-  border-bottom: var(--color-bold) solid 3px;
+  border-bottom: 3px solid var(--color-bold);
 }
 
-ul{
-  list-style: none;
-}
-
-.dica{
+/* Dica lateral */
+.dica {
   margin: 50px 0;
-  padding-left:20px;
-  border-left: solid var(--color-bold) 5px;
+  padding-left: 20px;
+  border-left: 5px solid var(--color-bold);
+  font-style: italic;
+}
+
+/* Campo de pesquisa */
+#campo-filtro {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 14px;
+  background-color: var(--color-input1);
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+#campo-filtro:focus {
+  background: var(--color-input2);
+  box-shadow: 0 0 0 3px rgba(71, 107, 163, 0.2); /* outline acessível */
+}
+
+/* ==================== Footer ======================== */
+footer {
+  background: var(--color-primary);
+  color: white;
+  padding: 50px 20px 30px; /* mais espaço em cima */
+  margin-top: 60px; /* separa melhor do conteúdo principal */
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* Grid responsivo: 4 colunas no desktop, empilha no mobile */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px 30px; /* espaçamento bom entre colunas */
+}
+
+.footer-col {
+  font-size: 0.95rem;
+}
+
+.footer-col h3 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--color-bold); /* linha sutil para separar */
+  padding-bottom: 8px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.footer-col a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover,
+.footer-col a:focus {
+  color: var(--color-bold);
+  text-decoration: underline;
+}
+
+/* Destaque na emergência */
+.emergency h3 {
+  color: var(--color-hover); /* cor mais chamativa para emergência */
+}
+
+.emergency strong {
+  color: var(--color-hover);
+}
+
+/* Contato com <address> – semântico para endereços */
+address {
+  font-style: normal;
+  line-height: 1.7;
+}
+
+/* Parte inferior centralizada */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 6px 0;
 }
